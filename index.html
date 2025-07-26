@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NUST Merit Prediction Calculator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo-container">
+                <img src="nust-logo.png" alt="NUST Logo" class="logo">
+                <h1>NUST Merit Prediction Calculator</h1>
+            </div>
+            <p class="subtitle">Estimate your merit position and eligible programs based on previous year data</p>
+        </header>
+
+        <!-- Mobile Header
+        <div class="mobile-header">
+            <img src="nust-logo.png" alt="NUST Logo" class="logo">
+            <h1>NUST Merit Calculator</h1>
+        </div> -->
+
+        <div class="calculator-container">
+            <div class="input-section">
+                <h2><i class="fas fa-calculator"></i> Enter Your Scores</h2>
+                
+                <div class="input-group">
+                    <label for="ssc-obtained">SSC Obtained Marks:</label>
+                    <div class="input-with-default">
+                        <input type="number" id="ssc-obtained" placeholder="e.g. 950">
+                        <span class="default-value">/ <input type="number" id="ssc-total" value="1100" class="total-marks"></span>
+                    </div>
+                </div>
+                
+                <div class="input-group">
+                    <label for="hsc-obtained">HSC Part 1 Obtained Marks:</label>
+                    <div class="input-with-default">
+                        <input type="number" id="hsc-obtained" placeholder="e.g. 480">
+                        <span class="default-value">/ <input type="number" id="hsc-total" value="550" class="total-marks"></span>
+                    </div>
+                </div>
+                
+                <div class="input-group">
+                    <label for="net-obtained">NET Obtained Marks:</label>
+                    <div class="input-with-default">
+                        <input type="number" id="net-obtained" placeholder="e.g. 161">
+                        <span class="default-value">/ <input type="number" id="net-total" value="200" class="total-marks"></span>
+                    </div>
+                </div>
+                
+                <div class="program-selection">
+                    <h3>Select Program Interest:</h3>
+                    <div class="radio-group">
+                        <label class="radio-container">
+                            <input type="radio" name="program" value="computing" checked>
+                            <span class="checkmark"></span>
+                            Computing
+                        </label>
+                        <label class="radio-container">
+                            <input type="radio" name="program" value="engineering">
+                            <span class="checkmark"></span>
+                            Engineering
+                        </label>
+                        <label class="radio-container">
+                            <input type="radio" name="program" value="both">
+                            <span class="checkmark"></span>
+                            Both
+                        </label>
+                    </div>
+                </div>
+                
+                <button id="calculate-btn" class="calculate-btn">
+                    <i class="fas fa-chart-line"></i> Calculate Merit
+                </button>
+            </div>
+            
+            <div class="results-section" id="results-section">
+                <div class="aggregate-result">
+                    <h2><i class="fas fa-percentage"></i> Your Aggregate</h2>
+                    <div class="aggregate-value" id="aggregate-value">--.--%</div>
+                </div>
+                
+                <div class="merit-prediction">
+                    <h2><i class="fas fa-list-ol"></i> Predicted Merit Position</h2>
+                    <div class="merit-range" id="merit-range">Not calculated yet</div>
+                    <div class="progress-container">
+                        <div class="progress-bar" id="progress-bar"></div>
+                        <div class="progress-labels">
+                            <span>Top</span>
+                            <span>Average</span>
+                            <span>Below Average</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="eligible-programs" id="eligible-programs">
+                    <h2><i class="fas fa-graduation-cap"></i> Eligible Programs</h2>
+                    <div class="tabs">
+                        <button class="tab-btn active" data-tab="computing-tab">Computing</button>
+                        <button class="tab-btn" data-tab="engineering-tab">Engineering</button>
+                    </div>
+                    
+                    <div class="tab-content active" id="computing-tab">
+                        <div class="program-list" id="computing-programs">
+                            <p class="no-programs">Calculate your merit to see eligible programs</p>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-content" id="engineering-tab">
+                        <div class="program-list" id="engineering-programs">
+                            <p class="no-programs">Calculate your merit to see eligible programs</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="actions">
+                    <button id="reset-btn" class="reset-btn">
+                        <i class="fas fa-redo"></i> Reset Calculator
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>Note: This calculator uses previous year's data for estimation. Actual merit may vary.</p>
+            <p class="disclaimer">Created by Shaheer Hassan</p>
+            <p class="disclaimer">Disclaimer: This is not an official NUST tool. Results are predictions only.</p>
+        </footer>
+    </div>
+
+    <div class="modal" id="save-modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h3>Save Your Results</h3>
+            <input type="text" id="save-name" placeholder="Enter your name">
+            <button id="confirm-save">Save</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
